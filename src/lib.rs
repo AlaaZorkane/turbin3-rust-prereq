@@ -82,6 +82,8 @@ mod tests {
     fn transfer_sol() {
         // -------------------------- SENDING 0.1 SOL ----------------------------------
         let keypair = read_keypair_file("dev-wallet.json").expect("Couldn't find wallet file");
+        let from_pubkey = keypair.pubkey();
+        println!("From: {:?}", from_pubkey);
         let to_pubkey = Pubkey::from_str(TURBIN3_PUBLIC_KEY).unwrap();
 
         let rpc_client = RpcClient::new(RPC_URL);
